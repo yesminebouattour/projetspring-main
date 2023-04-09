@@ -32,50 +32,50 @@ public class ClientService {
             );
         };
     }
-    public Client updateClient(Long id , Client client){
-        boolean exist = clientRepository.existsById(id);
-        if (exist){
-            //clientRepository.save(client);
-            Client oldClient=clientRepository.findById(id).get();
-            if(client.getraisonsocial() != null) {
-                oldClient.setraisonsocial(client.getraisonsocial());
-            }
-            if(client.getNumero() != null) {
-                oldClient.setNumero(client.getNumero());
-            }
-            if(client.getCode() != null) {
-                oldClient.setCode(client.getCode());
-            }
-            if(client.getcodeTVA() != null) {
-                oldClient.setcodeTVA(client.getcodeTVA());
-            }
-            if(client.getNétablissement() != null) {
-                oldClient.setNétablissement(client.getNétablissement());
-            }
-            if(client.getCodePostale() != null) {
-                oldClient.setCodePostale(client.getCodePostale());
-            }
-            if(client.getActivité() != null) {
-                oldClient.setActivité(client.getActivité());
-            }
-            if(client.getRue() != null) {
-                oldClient.setRue(client.getRue());
-            }
-            if(client.getCatégorie() != null) {
-                oldClient.setCatégorie(client.getCatégorie());
-            }
-            if(client.getClef() != null) {
-                oldClient.setClef(client.getClef());
-            }
-            return   clientRepository.save(oldClient);
-
-        }
-        else {
-            throw new IllegalStateException(
-                    "client with id" +id+ "does not exist"
-            );
-        }
-    }
+//    public Client updateClient(Long id , Client client){
+//        boolean exist = clientRepository.existsById(id);
+//        if (exist){
+//            //clientRepository.save(client);
+//            Client oldClient=clientRepository.findById(id).get();
+//            if(client.getraisonsocial() != null) {
+//                oldClient.setraisonsocial(client.getraisonsocial());
+//            }
+//            if(client.getNumero() != null) {
+//                oldClient.setNumero(client.getNumero());
+//            }
+//            if(client.getCode() != null) {
+//                oldClient.setCode(client.getCode());
+//            }
+//            if(client.getcodeTVA() != null) {
+//                oldClient.setcodeTVA(client.getcodeTVA());
+//            }
+//            if(client.getNétablissement() != null) {
+//                oldClient.setNétablissement(client.getNétablissement());
+//            }
+//            if(client.getCodePostale() != null) {
+//                oldClient.setCodePostale(client.getCodePostale());
+//            }
+//            if(client.getActivité() != null) {
+//                oldClient.setActivité(client.getActivité());
+//            }
+//            if(client.getRue() != null) {
+//                oldClient.setRue(client.getRue());
+//            }
+//            if(client.getCatégorie() != null) {
+//                oldClient.setCatégorie(client.getCatégorie());
+//            }
+//            if(client.getClef() != null) {
+//                oldClient.setClef(client.getClef());
+//            }
+//            return   clientRepository.save(oldClient);
+//
+//        }
+//        else {
+//            throw new IllegalStateException(
+//                    "client with id" +id+ "does not exist"
+//            );
+//        }
+//    }
 
 
 }

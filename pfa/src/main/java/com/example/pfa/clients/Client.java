@@ -1,4 +1,7 @@
 package com.example.pfa.clients;
+import com.example.pfa.annexes1SFm.Annexe1SFm;
+import com.example.pfa.codePostale.CodePostale;
+
 import javax.persistence.*;
 
 
@@ -17,29 +20,49 @@ public class Client {
     private Long code ;
     private Long codeTVA;
     private Long nétablissement;
-    private Long codePostale;
+    //    private Long codePostale;
     private String activité;
     private String rue;
-    private String ville;
+    //    private String ville;
     private String catégorie;
 
     private Long clef;
 
+    public CodePostale getCodePostale() {
+        return ville;
+    }
+
+    public void setCodePostale(CodePostale ville) {
+        this.ville = ville;
+    }
+//
+//    public CodePostale getCodePostale() {
+//        return codePostale;
+//    }
+//
+//    public void setCodePostale(CodePostale codePostale) {
+//        this.codePostale = codePostale;
+//    }
+
+    @ManyToOne
+    private CodePostale ville;
+    @ManyToOne
+    private CodePostale codePostale;
 
     public Client(Long id, String raisonsocial,  Long numero, Long code,Long codeTVA,Long nétablissement,
-                  Long codePostale, String activité,String rue,String catégorie,Long clef, String ville ) {
+                  String activité,String rue,String catégorie,Long clef ) {
         this.id = id;
         this.raisonsocial = raisonsocial;
         this.numero = numero;
         this.code= code;
         this.codeTVA=codeTVA;
         this.nétablissement=nétablissement;
-        this.codePostale=codePostale;
+
         this.activité=activité;
         this.rue=rue;
         this.catégorie=catégorie;
         this.clef=clef;
-        this.ville=ville;
+
     }
 
     public Client() {
@@ -93,13 +116,7 @@ public class Client {
         this.nétablissement = nétablissement;
     }
 
-    public Long getCodePostale() {
-        return codePostale;
-    }
 
-    public void setCodePostale(Long codePostale) {
-        this.codePostale = codePostale;
-    }
 
     public String getActivité() {
         return activité;
@@ -135,11 +152,5 @@ public class Client {
         this.clef = clef;
     }
 
-    public String getVille() {
-        return ville;
-    }
 
-    public void setVille(String ville) {
-        this.ville =ville;
-    }
 }

@@ -1,5 +1,6 @@
 package com.example.pfa.annexes5;
 
+import com.example.pfa.annexes1.Annexe1;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,9 +22,6 @@ public class Annexe5Service {
         return annexe5Repository.findAll();
     }
 
-    public Annexe5 getAnnexe5(Long id) {
-        return annexe5Repository.findById(id).get();
-    }
 
     public void deleteAnnexe5(Long id) {
         boolean exist = annexe5Repository.existsById(id);
@@ -35,5 +33,10 @@ public class Annexe5Service {
             );
         };
     }
+    public List<Annexe5> findByClientId(Long clientId) {
+        List<Annexe5> aa =  annexe5Repository.findByClientId(clientId);
+        return aa;
+    }
 }
+
 

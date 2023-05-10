@@ -1,6 +1,7 @@
 package com.example.pfa.annexes5;
 
 import com.example.pfa.annexes5TypeId.Annexe5TypeId;
+import com.example.pfa.clients.Client;
 
 import javax.persistence.*;
 
@@ -33,9 +34,17 @@ public class Annexe5 {
     public void setAnnexe5TypeId(Annexe5TypeId typeid) {
         this.typeid = typeid;
     }
+    public Client getClient() {
+        return client;
+    }
 
+    public void setClient(Client raisonsocial) {
+        this.client = raisonsocial;
+    }
     @ManyToOne
     private Annexe5TypeId typeid;
+    @ManyToOne
+    private Client client;
     public Annexe5(Long id, Long idCin, String name, String activite, String adresse, Double mt10, Double retenues, Double mt15, Double mt23, Double mtEses,
                    Double mtTVA, Double montantnet) {
         this.id = id;

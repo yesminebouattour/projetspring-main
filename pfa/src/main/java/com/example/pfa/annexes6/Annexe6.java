@@ -2,6 +2,7 @@ package com.example.pfa.annexes6;
 
 import com.example.pfa.annexes3TypeId.Annexe3TypeId;
 import com.example.pfa.annexes6NaturesMontants.Annexe6NatureMontant;
+import com.example.pfa.clients.Client;
 
 import javax.persistence.*;
 
@@ -42,11 +43,19 @@ public class Annexe6 {
         this.annexe6NatureMontant = natureMontant;
 
     }
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client raisonsocial) {
+        this.client = raisonsocial;
+    }
     @ManyToOne
     private Annexe3TypeId typeid;
     @ManyToOne
     private Annexe6NatureMontant annexe6NatureMontant;
-
+    @ManyToOne
+    private Client client;
     public Annexe6(Long id, Long idCin, String name, String activite, String adresse, Double mtsRistoumes, Double mtsVentes, Double ventesPP, Double mtPari, Double retenuPari, Double mtVentesEses, Double retenuVentesEses, Double mtsRecouvrés) {
         this.id = id;
         this.idCin = idCin;
@@ -172,4 +181,3 @@ public class Annexe6 {
     }
 
 }
-

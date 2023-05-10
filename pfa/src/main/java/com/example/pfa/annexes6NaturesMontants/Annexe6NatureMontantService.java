@@ -1,5 +1,7 @@
 package com.example.pfa.annexes6NaturesMontants;
 
+import com.example.pfa.annexes1.Annexe1;
+import com.example.pfa.annexes2.Annexe2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,6 +11,7 @@ import java.util.List;
 public class Annexe6NatureMontantService {
 
     private final Annexe6NatureMontantRepository annexe6NatureMontantRepository;
+
     @Autowired
     public Annexe6NatureMontantService(Annexe6NatureMontantRepository annexe6NatureMontantRepository) {
         this.annexe6NatureMontantRepository = annexe6NatureMontantRepository;
@@ -23,9 +26,6 @@ public class Annexe6NatureMontantService {
         return annexe6NatureMontantRepository.findAll();
     }
 
-    public Annexe6NatureMontant getNatureMontant(Long id) {
-        return annexe6NatureMontantRepository.findById(id).get();
-    }
 
     public void deleteNatureMontant(Long id) {
         boolean exist= annexe6NatureMontantRepository.existsById(id);
@@ -39,25 +39,9 @@ public class Annexe6NatureMontantService {
         };
     }
 
-    public Annexe6NatureMontant updateNatureMontant(Long id, Annexe6NatureMontant natureMontant) {
-        boolean exist = annexe6NatureMontantRepository.existsById(id);
-        if (exist){
 
-            Annexe6NatureMontant oldNatureMontant = annexe6NatureMontantRepository.findById(id).get();
-            if(natureMontant.getNatureMontant() != null) {
-                oldNatureMontant.setNatureMontant(natureMontant.getNatureMontant());
-            }
-            if(natureMontant.getAnnexe() != null) {
-                oldNatureMontant.setAnnexe(natureMontant.getAnnexe());
-            }
-            return annexe6NatureMontantRepository.save(oldNatureMontant);
-        }
-        else {
-            throw new IllegalStateException(
-                    "post with id" +id+ "does not exist"
-            );
-        }
+    public List<Annexe6NatureMontant> findByAnnexesId(Long annexesID) {
+        List<Annexe6NatureMontant> aa =  annexe6NatureMontantRepository.findByAnnexesId(annexesID);
+        return aa;
     }
-
 }
-

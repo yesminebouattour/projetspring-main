@@ -1,6 +1,7 @@
 package com.example.pfa.annexes1;
 import com.example.pfa.annexes1SFm.Annexe1SFm;
 import com.example.pfa.annexes1TypeId.Annexe1TypeId;
+import com.example.pfa.clients.Client;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -51,10 +52,23 @@ public class Annexe1 {
     public void setAnnexe1SFm (Annexe1SFm situation) {
         this.annexe1SFm = situation;
     }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
     @ManyToOne
     private Annexe1SFm annexe1SFm;
     @ManyToOne
     private Annexe1TypeId typeid;
+
+
+    @ManyToOne
+    private Client client;
 
     public Annexe1(Long id,Long nordre,  Long idCin, String name, String emploi, String adresse, Integer enfant, String d1, String d2,
                    Integer njour, Double revenuImposable, Double vavantages, Double totalrevenus, Double revenuréinvesti,

@@ -1,6 +1,8 @@
 package com.example.pfa.annexes6NaturesMontants;
 
 
+import com.example.pfa.annexes.Annexes;
+
 import javax.persistence.*;
 
 @Entity(name = "NaturesMontants")
@@ -12,6 +14,19 @@ public class Annexe6NatureMontant {
     private String natureMontant;
 
     private String annexe;
+
+
+    public Annexes getAnnexes() {
+        return annexes;
+    }
+
+    public void setAnnexes(Annexes annexe) {
+        this.annexes = annexe;
+    }
+
+    @ManyToOne
+    private Annexes annexes;
+
     public Annexe6NatureMontant(Long id, String natureMontant, String annexe) {
         this.id = id;
         this.natureMontant = natureMontant;

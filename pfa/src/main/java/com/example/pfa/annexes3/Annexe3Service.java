@@ -1,5 +1,6 @@
 package com.example.pfa.annexes3;
 
+import com.example.pfa.annexes1.Annexe1;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,9 +22,7 @@ public class Annexe3Service {
         return annexe3Repository.findAll();
     }
 
-    public Annexe3 getAnnexe3(Long id) {
-        return annexe3Repository.findById(id).get();
-    }
+
 
     public void deleteAnnexe3(Long id) {
         boolean exist = annexe3Repository.existsById(id);
@@ -35,5 +34,8 @@ public class Annexe3Service {
             );
         };
     }
+    public List<Annexe3> findByClientId(Long clientId) {
+        List<Annexe3> aa =  annexe3Repository.findByClientId(clientId);
+        return aa;
+    }
 }
-

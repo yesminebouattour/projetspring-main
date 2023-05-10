@@ -3,6 +3,7 @@ package com.example.pfa.annexes3;
 
 import com.example.pfa.annexes1TypeId.Annexe1TypeId;
 import com.example.pfa.annexes3TypeId.Annexe3TypeId;
+import com.example.pfa.clients.Client;
 
 import javax.persistence.*;
 
@@ -34,9 +35,17 @@ public class Annexe3 {
     public void setAnnexe3TypeId(Annexe3TypeId typeid) {
         this.typeid = typeid;
     }
+    public Client getClient() {
+        return client;
+    }
 
+    public void setClient(Client raisonsocial) {
+        this.client = raisonsocial;
+    }
     @ManyToOne
     private Annexe3TypeId typeid;
+    @ManyToOne
+    private Client client;
     public Annexe3(Long id, Long idCin, String name, String activite, String adresse, Double interetCompte, Double interetAutre, Double interetPrets, Double montantCGC, Double montantRetenues, Double montantnet) {
         this.id = id;
         this.idCin = idCin;

@@ -3,6 +3,7 @@ package com.example.pfa.annexes2;
 
 import com.example.pfa.annexes2TypeId.Annexe2TypeId;
 import com.example.pfa.annexes6NaturesMontants.Annexe6NatureMontant;
+import com.example.pfa.clients.Client;
 
 import javax.persistence.*;
 
@@ -47,13 +48,21 @@ public class Annexe2 {
     public void setAnnexe2TypeId(Annexe2TypeId typeid) {
         this.typeid = typeid;
     }
+    public Client getClient() {
+        return client;
+    }
 
+    public void setClient(Client raisonsocial) {
+        this.client = raisonsocial;
+    }
     @ManyToOne
     private Annexe6NatureMontant annexe6NatureMontant;
     @ManyToOne
     private Annexe2TypeId typeid;
+    @ManyToOne
+    private Client client;
 
-    public Annexe2(Long id, Long idCin, String name, String activite, String adresse,Double montant, Double honorairesServis, Double remuEtPrimes, Double remunerationPaye, Double plusValue, Double loyerHotels, Double remunerationArtiste, Double montantRetenues, Double retenueTVA, Double montantnet,Annexe6NatureMontant annexe6NatureMontant) {
+    public Annexe2(Long id, Long idCin, String name, String activite, String adresse,Double montant, Double honorairesServis, Double remuEtPrimes, Double remunerationPaye, Double plusValue, Double loyerHotels, Double remunerationArtiste, Double montantRetenues, Double retenueTVA, Double montantnet) {
         this.id = id;
         this.idCin = idCin;
         this.name = name;
@@ -69,7 +78,7 @@ public class Annexe2 {
         this.montantRetenues = montantRetenues;
         this.retenueTVA = retenueTVA;
         this.montantnet = montantnet;
-        this.annexe6NatureMontant=annexe6NatureMontant;
+
     }
 
     public Annexe2() {
